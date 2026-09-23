@@ -18,11 +18,12 @@ impl Stock {
     // Distribute a kit based on user preference or availability
     fn distribute_kit(&self, preference: Option<KitType>) -> KitType {
         // Check if the user has a preference; if not, choose the most available kit type
-        // Change this if statement to use closures... (unwrap_or_else)
-        if let Some(pref) = preference {
-            pref
-        } else {
-            self.most_available()
+        // Exercise <<++++++++++++++++++++++++++++++++
+        // 1. Rewrite this match using `if let`.
+        // 2. Then rewrite it again using `unwrap_or_else` (with a closure).
+        match preference {
+            Some(pref) => pref,
+            None => self.most_available(),
         }
     }
 
